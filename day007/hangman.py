@@ -31,13 +31,14 @@ def display_result(msg):
     print(msg)
     if end_of_game == True:
         if msg == "YOU WIN!":
-            print()
+            end_msg = "You guessed the word:"
         else:
-            print()
-            print("*"*30)
-            print(f'The word was: {word_to_guess}')
-            print("*"*30)
-            print()
+            end_msg = "The word was:"
+        print()
+        print("*"*30)
+        print(f'{end_msg} {word_to_guess}')
+        print("*"*30)
+        print()
 
 os.system('clear')
 os.system("cls")
@@ -77,6 +78,5 @@ while not end_of_game:
             if lives == 0:
                 end_of_game = True              
 
-    
     display_result(msg)
 
