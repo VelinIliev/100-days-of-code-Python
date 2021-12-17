@@ -22,6 +22,7 @@ def dipsay_as_string(display):
 def display_result(msg):
     os.system('clear') #for OSX and Linux os.system('cls') for windows
     os.system("cls")
+    print(word_to_guess)
     print(stages[lives])
     if len(used_letters) == 0:
         print()
@@ -29,11 +30,14 @@ def display_result(msg):
         print(f'Typed letters: {dipsay_as_string(used_letters)}')
     print(msg)
     if end_of_game == True:
-        print()
-        print("*"*30)
-        print(f'The word was: {word_to_guess}')
-        print("*"*30)
-        print()
+        if msg == "YOU WIN!":
+            print()
+        else:
+            print()
+            print("*"*30)
+            print(f'The word was: {word_to_guess}')
+            print("*"*30)
+            print()
 
 os.system('clear')
 os.system("cls")
@@ -45,8 +49,11 @@ while not end_of_game:
     print(dipsay_as_string(display))
 
     letter_from_user = input("\nGuess a letter: \n").lower()
-        
-    if letter_from_user in word_to_guess: 
+    if (len(letter_from_user) > 1):
+        msg = 'please enter only one letter'
+    elif ord(str(letter_from_user)) < 97 or ord(str(letter_from_user)) > 122:
+        msg = 'please enter a letter'    
+    elif letter_from_user in word_to_guess: 
         for n in range(0, word_length):
             if letter_from_user == word_to_guess[n]:
                 display[n] = letter_from_user
@@ -54,23 +61,22 @@ while not end_of_game:
         if letter_from_user in used_letters :
             msg = "You alredy used this letter"
         
-        if "_" not in display:
+        elif "_" not in display:
             end_of_game = True
             msg = "YOU WIN!" 
-        
         used_letters += letter_from_user
 
     elif (lives > 0): 
         if letter_from_user in used_letters :
             msg = "You alredy used this letter"
-            
         else:
             lives -= 1 
             msg = f'The letter "{letter_from_user}" is not in the word.'
-        
+            used_letters += letter_from_user
+
             if lives == 0:
                 end_of_game = True              
 
-        used_letters += letter_from_user
+    
     display_result(msg)
 
