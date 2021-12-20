@@ -1,20 +1,38 @@
-def calculator (first_number, operation, second_number):
-    if operation == "+":
-        return first_number + second_number
-    elif operation == "-":
-        return first_number - second_number
-    elif operation == "*":
-        return first_number * second_number
-    elif operation == "/":
-        return first_number / second_number
+def add(n1, n2):
+    return n1 + n2
+def substract(n1, n2):
+    return n1 - n2
+def multiplay(n1, n2):
+    return n1 * n2
+def divide(n1, n2):
+    return n1 / n2
+    
+operations = {
+    "+": add,
+    "-": substract,
+    "*": multiplay,
+    "/": divide,
+}
+end_of_calculation = False
+start_position = 'yes'
 
+while not end_of_calculation:
+    if start_position == "yes":
+        num1 = float(input("What is the first number? "))
+    elif start_position == 'no': 
+        num1 = answer
 
-first_number = float(input("What is the first number? "))
-print("+\n-\n*\n/")
-
-operation = input("Select operation ")
-second_number = float(input("What is the next number? "))
-
-result = calculator(first_number = first_number, operation = operation, second_number = second_number)
-print(result)
-continue_calc = input("Type 'y' to continue calculating with 10.0, or type 'n' to start a new calculation: ")
+    for symbol in operations:
+        print(symbol)
+    operation_symbol = input("Select operation: ")
+    num2 = float(input("What is the next number? "))
+    calculation_function = operations[operation_symbol]
+    answer = calculation_function(num1, num2)
+    print(f'{num1} {operation_symbol} {num2} = {answer}')
+    continue_c = input(f"Type 'y' to continue calculating with {answer},type 'new' for new calculation or type 'e' to exit.:")
+    if continue_c.lower() == 'e':
+        end_of_calculation = True
+    elif continue_c.lower() == 'new':
+        start_position = 'yes'
+    elif continue_c == 'y':
+        start_position = 'no'
