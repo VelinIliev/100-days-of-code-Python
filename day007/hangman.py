@@ -14,7 +14,6 @@ used_letters = []
 end_of_game = False
 lives = 6
 
-
 def dipsay_as_string(display):
     display_str = " ".join(display)
     return display_str
