@@ -3,6 +3,7 @@ from snake import Snake
 import time
 from food import Food
 from score_board import ScoreBoard
+from border import Border
 
 screen = t.Screen()
 screen.setup(width = 600, height = 600)
@@ -13,6 +14,7 @@ screen.tracer(0)
 snake = Snake()
 food = Food()
 score_board = ScoreBoard()
+border = Border()
 
 screen.listen()
 screen.onkey(snake.up, "Up" )
@@ -34,7 +36,7 @@ while game_is_on:
         score_board.increase_score()
 
     # detect collision with wall
-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+    if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
         game_is_on = False
         score_board.game_over()
 

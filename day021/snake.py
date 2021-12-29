@@ -50,5 +50,4 @@ class Snake():
 
     def extend(self):
         position = self.segments[-1].position()
-        print(position)
         self.add_segment(position)
