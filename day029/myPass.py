@@ -3,13 +3,13 @@ from tkinter import messagebox
 from generate_pass import generate_random_password
 import pyperclip
 
-FONT = ("Arial", 14)
-WIDTHx = 38
+FONT = ("Arial", 10)
+WIDTHx = 55
 
 window = tk.Tk()
 window.title("MyPass App")
-window.minsize(width=540,height=380)
-window.config(padx = 20, pady = 20)
+# window.minsize(width=540,height=380)
+window.config(padx = 50, pady = 50)
 
 # generate random password & copy to clipboard
 def generate_password():
@@ -65,7 +65,7 @@ pass_labael = tk.Label(text="Password:", font= FONT)
 pass_labael.grid(column=0, row=3)
 
 # password input
-pass_input = tk.Entry(width = 21)
+pass_input = tk.Entry(width=36)
 pass_input.grid(column=1, row=3)
 
 # generate password button
@@ -73,6 +73,6 @@ gen_pass_btn = tk.Button(text = "Generate password", command=generate_password)
 gen_pass_btn.grid(column=2, row=3)
 
 # add button
-add_btn = tk.Button(text = "Add", command=add_password, width=WIDTHx-2)
+add_btn = tk.Button(text = "Add", command=add_password, width=WIDTHx-8)
 add_btn.grid(column=1, row=4, columnspan=2)
 window.mainloop()
