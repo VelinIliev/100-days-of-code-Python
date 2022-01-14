@@ -1,9 +1,8 @@
 import requests 
 from datetime import datetime
-import os
 
-APP_ID = os.environ["NT_APP_ID"]
-API_KEY = os.environ["NT_API_KEY"]
+APP_ID = "5382f37e"
+API_KEY = "ce2ad45826b8d7985072787751f8499e"
 
 GENDER = "male"
 WEIGHT_KG = 86
@@ -12,7 +11,7 @@ AGE = 44
 
 
 exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
-sheet_endpoint = "************"
+sheet_endpoint = "https://api.sheety.co/c5274ac4762ce369ac1ce77f81d22bb2/final/velin"
 
 exercise_text = input("Tell me which exercises you did: ")
 
@@ -38,7 +37,7 @@ now_time = datetime.now().strftime("%X")
 
 for exercise in result["exercises"]:
     sheet_inputs = {
-        "workout": {
+        "velin": {
             "date": today_date,
             "time": now_time,
             "exercise": exercise["name"].title(),
