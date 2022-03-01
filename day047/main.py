@@ -21,8 +21,8 @@ print(price_as_float)
 # send email
 if price_as_float < 100:
 
-    my_email = "velko2022@gmail.com"
-    password = "Alabala10"
+    my_email = "********@gmail.com"
+    password = "********"
 
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
