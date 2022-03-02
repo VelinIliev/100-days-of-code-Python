@@ -1,4 +1,3 @@
-from email import message
 from selenium import webdriver
 from time import sleep
 
